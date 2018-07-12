@@ -15,6 +15,7 @@ deploy:
   skip_cleanup: true
   api_key:
     secure: dQ2bLD5Z+d6Imcyh8KarjP35hp7r/DvWfdt7jHbuJbOWJ5GI97/yzhSQGe98f8mihjzSbDXjrVoNhARH5QcxC09Xw/cskAdK+eAfV+JS//41tshlcwepxVses7JqfpbRZQDl9f+DWk0/iBGYLswfNsXEO4r9uEx5xNYweHo8vXgEcwz05XxcuGhxIsMBHYn/48+t3FeH/FcQ9WKW6FSnQZRLgXV9nfvBudsfW7DFxjEjMGStiZOTmXwIuDCsRvdGlRg/kWnM1KSJKi+LPWSVUj6xGSyjmjOnwSF65htm6awM2WmuIb1D5qVj+mjC977E99eXjjbhY61pvOgN+ZXf5OaI0OI95unp2zYraP/UqXpUtqt4JY0LCMiKa211t5zJrrX7rFnBQaVeRzNaxgbh4ehO6PQDxuE8sozdJvxEBhQQLSQ1MsF6DHUnWotMizmut6XoHy7pWm6i66O2QLS58wHkTCpjupGQO2qziwdbWbQSugWCSezdyCp9Zwdwlo0EtvZWFNqZ7HTGR86MBnL3YNiGW5TVooWQLRjwV5I6Nzgku4aeOjvhxmI9lXpsb8CqVMntD2sFJdyEPacHGtt2wMwRZJ1xBaf+ZZuODOlk7rixt56TP3WM/2pNlGBLPl1/cRSa4rmlmnv1N3QmAuCC5T8SIKbjCXohWGKBU6bI/MU=
+  file_glob: true
   file: build/libs/*.jar
   on:
     tags: true
