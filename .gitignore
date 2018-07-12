@@ -24,6 +24,7 @@ hs_err_pid*
 
 # Build directory
 build/
+bin/
 
 # Eclipse project files
 .settings/
