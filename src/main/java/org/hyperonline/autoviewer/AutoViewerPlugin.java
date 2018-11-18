@@ -15,9 +15,9 @@ import edu.wpi.first.shuffleboard.api.plugin.Requires;
 import edu.wpi.first.shuffleboard.api.widget.ComponentType;
 import edu.wpi.first.shuffleboard.api.widget.WidgetType;
 
-@Description(group = "org.hyperonline",
-    name = "AutoViewer",
-    version = "0.2.0", 
+@Description(group = BuildConfig.GROUP,
+    name = BuildConfig.NAME,
+    version = BuildConfig.VERSION, 
     summary = "Select autonomous modes and set preferences"
 )
 @Requires(group = "edu.wpi.first.shuffleboard", name = "NetworkTables", minVersion = "2.0.0")
