@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.hyperonline.autoviewer.widget.AutonomousInfoWidget;
-import org.hyperonline.autoviewer.widget.AutonomousRoutineWidget;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
@@ -18,16 +17,15 @@ import edu.wpi.first.shuffleboard.api.widget.WidgetType;
 
 @Description(group = "org.hyperonline",
     name = "AutoViewer",
-    version = "0.1.0", 
+    version = "0.2.0", 
     summary = "Select autonomous modes and set preferences"
 )
-@Requires(group = "edu.wpi.first.shuffleboard", name = "NetworkTables", minVersion = "1.0.0")
+@Requires(group = "edu.wpi.first.shuffleboard", name = "NetworkTables", minVersion = "2.0.0")
 public class AutoViewerPlugin extends Plugin {
     @SuppressWarnings("rawtypes")
     @Override
     public List<DataType> getDataTypes() {
         return ImmutableList.of(
-                //AutonomousRoutineType.Instance,
                 AutonomousInfoType.Instance);
     }
     
@@ -36,7 +34,6 @@ public class AutoViewerPlugin extends Plugin {
     @Override
     public List<ComponentType> getComponents() {
         return ImmutableList.of(
-                //WidgetType.forAnnotatedWidget(AutonomousRoutineWidget.class),
                 WidgetType.forAnnotatedWidget(AutonomousInfoWidget.class));
     }
     
@@ -44,7 +41,6 @@ public class AutoViewerPlugin extends Plugin {
     @Override
     public Map<DataType, ComponentType> getDefaultComponents() {
         return ImmutableMap.<DataType, ComponentType>builder()
-                //.put(AutonomousRoutineType.Instance, WidgetType.forAnnotatedWidget(AutonomousRoutineWidget.class))
                 .put(AutonomousInfoType.Instance, WidgetType.forAnnotatedWidget(AutonomousInfoWidget.class))
                 .build();
     }

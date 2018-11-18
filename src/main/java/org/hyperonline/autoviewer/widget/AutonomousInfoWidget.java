@@ -12,11 +12,11 @@ import org.hyperonline.autoviewer.AutonomousStrategyData;
 
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.shuffleboard.api.sources.DataSource;
-import edu.wpi.first.shuffleboard.api.util.NetworkTableUtils;
 import edu.wpi.first.shuffleboard.api.widget.Description;
 import edu.wpi.first.shuffleboard.api.widget.ParametrizedController;
 import edu.wpi.first.shuffleboard.api.widget.SimpleAnnotatedWidget;
 import edu.wpi.first.shuffleboard.plugin.networktables.sources.NetworkTableSource;
+import edu.wpi.first.shuffleboard.plugin.networktables.util.NetworkTableUtils;
 import javafx.fxml.FXML;
 import javafx.geometry.Orientation;
 import javafx.scene.control.ChoiceBox;
@@ -34,7 +34,7 @@ import javafx.util.StringConverter;
 public class AutonomousInfoWidget extends SimpleAnnotatedWidget<AutonomousInfo> {
 
     public static final String PREFERENCES_LOCATION = "Preferences/$auto_preferences";
-    public static final String SEPERATOR = "/";
+    public static final String SEPARATOR = "/";
     
     @FXML
     private BorderPane root;
@@ -248,7 +248,7 @@ public class AutonomousInfoWidget extends SimpleAnnotatedWidget<AutonomousInfo> 
     }
     
     private DataSource<Double> getDataSource(String routine, String pref) {
-        String path = PREFERENCES_LOCATION + SEPERATOR + routine + SEPERATOR + pref;
+        String path = PREFERENCES_LOCATION + SEPARATOR + routine + SEPARATOR + pref;
 
         NetworkTableEntry entry = NetworkTableUtils.rootTable.getEntry(path);
         entry.setDefaultDouble(0.0);

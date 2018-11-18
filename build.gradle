@@ -1,35 +1,32 @@
 import org.gradle.plugins.ide.eclipse.model.AccessRule
 
 plugins {
-  id "fr.brouillard.oss.gradle.jgitver" version "0.2.0"
+    id 'com.google.osdetector' version '1.4.0'
+    id 'fr.brouillard.oss.gradle.jgitver' version '0.6.1'
+    id 'java'
 }
-
-apply plugin: 'java'
-apply plugin: 'eclipse'
 
 jgitver {
   mavenLike = true
 }
 
 repositories {
-        mavenCentral()
-        maven {
-            url 'http://first.wpi.edu/FRC/roborio/maven/release'
-        }
+    mavenCentral()
+    maven {
+        url 'http://first.wpi.edu/FRC/roborio/maven/release'
     }
-
-dependencies {
-    compile group: 'edu.wpi.first.shuffleboard', name: 'api', version: '1.2.+'
-    compile group: 'edu.wpi.first.shuffleboard.plugin', name: 'networktables', version: '1.2.+' 
 }
 
-eclipse {
-    classpath {
-        file {
-            whenMerged {
-                def jre = entries.find { it.path.contains 'org.eclipse.jdt.launching.JRE_CONTAINER' }
-                jre.accessRules.add(new AccessRule('0', 'javafx/**'))
-            }
-        }
-    }
+def os_mapping = ['linux': 'linux', 'osx': 'mac', 'windows': 'win']
+def os_classifier = os_mapping[osdetector.os]
+if (os_classifier == null) {
+    throw new RuntimeException("Unsupported OS: ${osdetector.os}".toString())
+}
+
+dependencies {
+    compile "org.openjfx:javafx-base:11.0.1:$os_classifier"
+    compile "org.openjfx:javafx-graphics:11.0.1:$os_classifier"
+    compile "org.openjfx:javafx-controls:11.0.1:$os_classifier"
+    compile 'edu.wpi.first.shuffleboard:api:2019.1.1-beta-2'
+    compile 'edu.wpi.first.shuffleboard.plugin:networktables:2019.1.1-beta-2'
 }
